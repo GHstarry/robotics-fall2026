@@ -1,0 +1,123 @@
+{
+  "checked_evidence_ids": {
+    "mission_1": "4d67f3c3af52585b",
+    "mission_2": "50c6aaab30a67382",
+    "mission_3": "c54744fab2cc4a70"
+  },
+  "completed_missions": [
+    "mission_1",
+    "mission_2",
+    "mission_3"
+  ],
+  "lab_id": "week01_ros_foundations",
+  "responses": {
+    "final.architecture_evidence": "My node is reactive because the function 'decide_velocity' gives us an updated speed to go at constantly without using prior data. For a genuinely hybrid system we would need a goal (start) and destination (end) for the robot.",
+    "final.course_reflection": "1. This activity made me more interested in robotics and how my code can change how something behaves.\n3. I see a lot of value in connecting them as making advancements in technology are better our quality of life. Ethically, I have yet to put much thought into making a good argument yet but I realize that there are pros and cons in connecting them.\n4. Seeing the robot move around in the simulation stood out to me because it was fun to see it move around with the functions I implemented.\n",
+    "final.hardware_next": "I would test things like delay and extreme and unexpected cases like pushing the robot around.",
+    "final.middleware_debugging": "The ROS graph helps diagnose a command before it reaches the robot since we can check each link of the chain of commands to see if the publishers and subscriptions are connected correctly. ",
+    "final.system_synthesis": "Robotics software is hard because there's so much to account for at once, before the robot even moves. There are sensors that can give bad or missing data, timing issues where things don't happen in the expected order, physical factors like speed and how the robot actually reacts to commands, and safety concerns where a bug doesn't just throw an error, it can make the robot crash into something for real. So hardware, software, timing, and safety all have to be considered together.\nThe architecture implemented here decides move or stop based on lidar readings in front of the robot. Pro: simple and easy to reason about, just check distance and decide. Con: it misses a lot, like ground slipperiness, or whether the robot's current speed means it needs more room to stop, or whether turning instead of full-stopping would be smarter.\nFor the ROS 2 middleware, there were at least four components talking to each other. The lidar publishes scan data, the control node reads that and decides a proposed speed, that proposed velocity goes out on /student_cmd_vel, the command guard node subscribes to that topic and checks it, then republishes an approved velocity on /cmd_vel which the robot/simulator actually executes. Lidar-to-control-node, control-node-to-guard, and guard-to-robot, three links connecting four pieces.\nTiming and invalid data matter a lot here because if a reading is missing, late, or wrong and the code doesn't handle it properly, the robot could keep moving with no real idea what's in front of it. That's why missing data gets treated as \"stop\" instead of \"assume clear,\" since assuming clear could cause a crash.\nThe layer that can actually restrict unsafe motion is the command guard, since it sits between the proposed command and the real robot and can block or override anything unsafe before it reaches the motors.",
+    "final.timing_evidence": "The result where an invalid or none from the function 'front_distance' should be treated as a stop rather than a sign to keep going affected my prior understanding of robot safety as I understand the risks but with robots with many sensors; wouldn't having more sensors drastically increase the chances of a robot of failing to property function? Or could a solution be to have multiple sensors for the same purpose but taking the majority of the bunch?",
+    "mission_1.command_path_explanation": "A proposed command travels on /student_cmd_vel and which is published to /course_cmd_vel_guard (AKA the guard). The guard checks/ alters the command to make sure it is 'safe' and publishes the command to /cmd_vel.\n",
+    "mission_1.graph_explanation": "A ROS 2 graph shows nodes and each of their subscriptions/ publishers. For example, a ROS 2 showed a node 'course_cmd_vel_guard' with topic type 'geometry_msg/msg/Twist'. It had 0 publishers and 2 subscriptions.",
+    "mission_1.guided_checks": {
+      "bridge_info": true,
+      "command_topics": true,
+      "guard_info": true,
+      "node_list": true,
+      "scan_info": true,
+      "scan_message": true
+    },
+    "mission_1.scan_observation": "I found .inf in the ranges field, which represents infinity.",
+    "mission_1.tools_explanation": "Gazebo is responsible for simulating the virtual world for the robot while RViz is responsible for displaying information about our robot as it has subscriptions to ROS' topics.\n",
+    "mission_2.measurement_explanation": "For the trial where I was able to set my own parameters, the estimated traveled path and the start-to-end distance differ slightly as the curve caused by the turning speed made the start-to-end distance shorter as the fastest way to get from point a to b is a straight line. The slight turn made it so that the estimated traveled path of .762m caused the robot to only displace itself by .759m. ",
+    "mission_2.modified_settings": {
+      "angular_z": 0.1,
+      "duration": 4.0,
+      "linear_x": 0.22
+    },
+    "mission_2.motion_comparison": "For the first curved trial, my prediction was wrong because the duration was not long enough for the robot to make a full circle. Two values that prove this are duration and start-to-end distance. The duration given was 4 seconds while the start-to-end distance is .5m. This means that the curve the robot made did not ultimately close at its origin point as there is still a distance of .5m from the starting point.",
+    "mission_2.prediction_locks": {
+      "curve": "2026-09-11T23:43:58.763356+00:00",
+      "curve_modified": "2026-09-11T23:47:49.684777+00:00",
+      "rotation": "2026-09-11T23:42:02.221086+00:00",
+      "straight": "2026-09-11T23:15:06.886657+00:00"
+    },
+    "mission_2.predictions": {
+      "curve": "I predict a path shape of a circle because a forward speed of .15 m/s is pretty slow and a right turn of -.4 radians/ second over a duration of 4 seconds could allow the robot to make a full but small circle.",
+      "curve_modified": "This curve should be wider as well as turns the other way because the turning speed is positive (turns left) with a much faster forward speed and lower turning speed.",
+      "rotation": "I predict its position will not change while its direction will change to face behind where it was originally facing. ",
+      "straight": "I predict the robot will finish with a displacement of .45 meters  ahead of its original starting point."
+    },
+    "mission_2.safety_explanation": "The command guard checks the proposed command given to the robot and alters or rejects the command if they are not safe. The final zero command stops all movement when a trial ends so that no sudden unexpected movements are executed after the trial. The stale-command timeout is needed if the robot is no longer receiving communication from a node that could be vital in keeping the robot in a functioning state. ",
+    "mission_3.data_to_command": "The first function 'front_distance' finds the distance of the closest obstacle in front of it from the LiDAR. It does so by putting the values from the LiDAR into a list, finds the angle using the angle_increment of each value and angle_min. Using the angle, we determine whether the value is in front of the robot and is a valid value. Out of the distances we have left, we get the closest one to our robot.\n\n Then the second function 'decide_velocity' and it stops the robot if there is no given distance or if the distance to travel is shorter than equal to the determined distance from an object in front of it. Otherwise, if neither of those are flagged, we tell the robot to move.",
+    "mission_3.missing_data_safety": "The robot stops when there is not valid front measurement because it means we don't know if the path in front of it is clear. It could be a that our LiDAR sensor bugged out or something else unexpected happened. But to treat the path as clear and have the robot to continue forward is risky.",
+    "mission_3.system_layers": "The decision functions and the supplied ROS node, as well as the command guard work together to help move the robot. First, the LiDAR values are passed through the functions and fed into the command guards. The command guard checks to make sure the values are safe to pass through and the ROS node receives the value from the command guard to move the actual part.",
+    "part_1.activity": {
+      "hardware": {
+        "changed": true,
+        "normal": true
+      },
+      "sensor": {
+        "changed": true,
+        "normal": true
+      },
+      "timing": {
+        "changed": true,
+        "normal": true
+      }
+    },
+    "part_2.activity": {
+      "behavior": {
+        "changed": true,
+        "normal": true
+      },
+      "deliberative": {
+        "changed": true,
+        "normal": true
+      },
+      "hybrid": {
+        "changed": true,
+        "normal": true
+      },
+      "reactive": {
+        "changed": true,
+        "normal": true
+      },
+      "safety": {
+        "changed": true,
+        "normal": true
+      }
+    },
+    "part_3.activity": {
+      "communication": {
+        "service": true,
+        "topic": true
+      },
+      "failure": {
+        "healthy": true,
+        "sensor": true,
+        "type": true,
+        "visualization": true
+      },
+      "inspection": {
+        "broken": true,
+        "echo": true,
+        "node_info": true,
+        "nodes": true,
+        "services": true,
+        "topic_info": true,
+        "topics": true
+      },
+      "middleware": {
+        "multiple": true,
+        "single": true
+      }
+    }
+  },
+  "schema_version": 1,
+  "student": {
+    "email": "stanley.zheng44@login.cuny.edu",
+    "name": "Stanley Zheng"
+  },
+  "updated_at": "2026-09-12T01:58:57.897514+00:00"
+}
