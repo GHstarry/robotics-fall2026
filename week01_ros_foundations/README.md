@@ -38,7 +38,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\ros_course.ps1 setup
 .\scripts\ros_course.ps1 lab week01_ros_foundations
 ```
 
-macOS/Linux:
+macOS/Linux:~
 
 ```bash
 chmod +x scripts/ros_course.sh
