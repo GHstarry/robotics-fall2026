@@ -1,0 +1,22 @@
+--- original_ai_output
++++ final_pattern.py
+@@ -21,9 +21,11 @@
+ def build_pattern(pattern_name: str) -> list[Segment]:
+     """Return ordered, bounded motion segments for the assigned pattern.
+ 
+-    Supported assignments are ``rounded_rectangle``, ``l_path``, and
+-    ``alternating_arcs``. Do not include the final stop; the ROS wrapper always
+-    publishes it and the evaluator verifies it.
++    Only ``alternating_arcs`` (this student's assignment) is implemented:
++    four forward arcs of radius 0.30 m turning +45, -45, +45, -45 degrees.
++    Any other name, including the other course patterns, raises ValueError.
++    Do not include the final stop; the ROS wrapper always publishes it and
++    the evaluator verifies it.
+     """
+     if pattern_name != "alternating_arcs":
+         raise ValueError(f"Unsupported pattern: {pattern_name!r}")
+@@ -32,4 +34,4 @@
+     return [
+         Segment(linear_x=ARC_SPEED, angular_z=sign * ARC_TURN_RATE, duration=ARC_DURATION)
+         for sign in (1, -1, 1, -1)
+-    ]+    ]

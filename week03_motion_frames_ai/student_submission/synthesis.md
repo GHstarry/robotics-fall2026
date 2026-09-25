@@ -1,0 +1,3 @@
+# Technical synthesis
+
+One example why robot motion program can be technically correct and still fail in a sociotechnical system is because of how it moves. For example, using the alternating_arcs program; although it runs and has the right radius, signs, and speed limits with a stop. Running the same program in a hallway or cramped space could make it fail. For pedestrians, trying to dodge the swerving robot could be a challenge especially with such misleading movements. They might believe that it moving left or right was it intending to move away from the pedestrian but then swing back into them on the way to the next arc.

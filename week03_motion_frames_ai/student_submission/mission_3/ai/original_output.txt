@@ -1,0 +1,55 @@
+Assumptions
+
+Frame and signs. Segments are in the robot body frame: +x forward, and positive angular_z turns left (counter-clockwise), as in ROS REP 103. A left 45° arc uses ω > 0 and a right 45° arc uses ω < 0.
+Arc geometry. Each arc is a single segment with constant linear_x and angular_z. Radius R = v/|ω| and turn angle Δθ = ω·t. With v = 0.15 m/s and |ω| = 0.50 rad/s, R = 0.30 m, and each 45° arc takes (π/4)/0.50 = π/2 ≈ 1.571 s.
+Exact durations. The duration is computed from π, not typed as 1.571, so the ideal turn angle is exactly π/4. The rounded value would be off by about 0.0002 rad per arc, which is small but avoidable.
+No stop segment. The list contains only the four arcs. The wrapper publishes zero velocity afterwards, so adding a zero segment here would duplicate its job.
+Ideal model. The segments describe the ideal path. The simulated robot accelerates and decelerates, and the wrapper publishes at a fixed rate, so the measured path will differ slightly. The live tolerances (0.15 m, 0.20 rad) cover that difference.
+Pattern names. build_pattern only needs to support alternating_arcs. Every other name, including the other two course patterns, raises ValueError instead of returning a guess.
+pattern.py
+
+
+"""AI-assisted motion pattern implementation.
+
+Preserve the original AI response in Streamlit. Review it, then implement a safe
+version here. The node accepts only segments returned by ``build_pattern``.
+"""
+from __future__ import annotations
+from dataclasses import dataclass
+import math
+
+@dataclass(frozen=True)
+class Segment:
+    linear_x: float
+    angular_z: float
+    duration: float
+
+ARC_SPEED = 0.15          # m/s, below the 0.22 m/s limit
+ARC_TURN_RATE = 0.50      # rad/s, below the 0.80 rad/s limit
+ARC_ANGLE = math.pi / 4   # 45 degrees per arc
+ARC_DURATION = ARC_ANGLE / ARC_TURN_RATE  # about 1.571 s; radius = 0.15 / 0.50 = 0.30 m
+
+def build_pattern(pattern_name: str) -> list[Segment]:
+    """Return ordered, bounded motion segments for the assigned pattern.
+
+    Supported assignments are ``rounded_rectangle``, ``l_path``, and
+    ``alternating_arcs``. Do not include the final stop; the ROS wrapper always
+    publishes it and the evaluator verifies it.
+    """
+    if pattern_name != "alternating_arcs":
+        raise ValueError(f"Unsupported pattern: {pattern_name!r}")
+
+    # Left, right, left, right: positive angular_z turns left.
+    return [
+        Segment(linear_x=ARC_SPEED, angular_z=sign * ARC_TURN_RATE, duration=ARC_DURATION)
+        for sign in (1, -1, 1, -1)
+    ]
+Proposed tests
+
+Segment order and signs: there are exactly 4 segments, every linear_x > 0, and the signs of angular_z are +, −, +, −.
+Radius and angle: for each segment, linear_x / abs(angular_z) is 0.30 ± 0.02 m and abs(angular_z) * duration is π/4 ± 0.04 rad.
+Final heading: the sum of angular_z * duration over all segments is 0 ± 0.04 rad, so the robot faces its starting direction.
+Endpoint: integrating the arcs from (0, 0, 0) ends at about (0.85, 0.35) m.
+Limits: every |linear_x| ≤ 0.22, every |angular_z| ≤ 0.80, every 0 < duration ≤ 30, and the total duration is at most 60 s.
+Stop: command_at(segments, total_duration) from the course checks.py returns (0.0, 0.0).
+Unknown pattern: build_pattern("zigzag") raises ValueError.
