@@ -1,0 +1,14 @@
+# mission_1 Submission
+
+- Name: Stanley Zheng
+- Section: 1
+
+## Explanations
+
+### prediction
+
+With too little Kp, I expect the arm to respond weak and slowly when given a new target. With too little Kd, I expect the arm to move toward the target quickly with nothing to slow it down even when it gets close to the target. This means that it would likely overshoot.
+
+### tuning_analysis
+
+I predicted that the with a lower Kp, the arm would respond slowly and with all little Kd, the arm moves too fast with no brakes. These predicts were proven when I saw the result of when I set the mode to 'Stiff' (which I believe to have the most flawless movements) and individually set both Kp and Kd to 0.0. When I set Kp to zero, the arms moved too slowly to catch up to the oncoming barrage of targets inputs. Setting Kd to 0 made the arms go too fast with and without enough foresight of stopping and thus overshooting and having to readjust multiple times to settle into the target. Turning off the gravity compensation made the movements more accurate and this can be seen with set to 'Stiff' mode that the arm moves precisely to the target very consistently.

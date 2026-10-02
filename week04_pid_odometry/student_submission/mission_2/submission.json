@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-10-01T20:36:32",
+  "mission_id": "mission_2",
+  "student": {
+    "name": "Stanley Zheng",
+    "student_id": "stanley.zheng44@login.cuny.edu",
+    "section": "1"
+  },
+  "explanations": {
+    "prediction": "The estimated forward distance will be larger than the actual distance while the sideways distance will be shorter than.",
+    "calibration_analysis": "I predicted that the forward distance would be overestimated and that the sideways distance would be underestimated. This is proven when I set the foward pod's in/tick higher and strafe pod's in/tick lower. Each pod scale changed how much inches each forward pod tick is worth so raising this made every forward and backwards movement longer and same is for the strafe pod but for sideways movements. The sideways pod is necessary because a holonomic robot can move sideways without turning. The sideways pods enable that movement. Some drift can still remain after calibration because it never checks and updates the actual distance with the real world."
+  },
+  "params": {
+    "forwardInPerTick": 0.0495,
+    "strafeInPerTick": 0.0496
+  },
+  "metrics": {
+    "max_error_in": 0.7975221689708825,
+    "final_error_in": 0.5329526808263925,
+    "passed": true
+  },
+  "result": {
+    "passed": true,
+    "maxError": 0.7975221689708825,
+    "finalError": 0.5329526808263925,
+    "params": {
+      "forwardInPerTick": 0.0495,
+      "strafeInPerTick": 0.0496
+    }
+  },
+  "csv_files": {},
+  "activity_gifs": [
+    "latest_odometry_test.gif"
+  ]
+}

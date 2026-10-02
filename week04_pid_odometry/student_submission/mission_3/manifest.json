@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "mission_id": "mission_3",
+  "files": [
+    {
+      "path": "submission.json",
+      "size_bytes": 29040,
+      "crc32": "62f3d7be"
+    },
+    {
+      "path": "drawn_route.csv",
+      "size_bytes": 166,
+      "crc32": "f7ef030e"
+    },
+    {
+      "path": "waypoint_nav_run.csv",
+      "size_bytes": 26530,
+      "crc32": "046343df"
+    },
+    {
+      "path": "activity_gifs/latest_drive.gif",
+      "size_bytes": 422571,
+      "crc32": "cd464b40"
+    },
+    {
+      "path": "explanation.md",
+      "size_bytes": 1023,
+      "crc32": "3bb16e2a"
+    }
+  ]
+}
