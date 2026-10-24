@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-24T03:09:38.970825+00:00",
+  "world_id": "turtlebot3_house",
+  "strategy": "eastside",
+  "duration_minutes": 10.0,
+  "map_yaml": "map.yaml",
+  "map_image": "map.pgm",
+  "metrics": {
+    "width": 273,
+    "height": 174,
+    "resolution": 0.05,
+    "map_area_m2": 118.755,
+    "known_fraction": 0.2233169129720854,
+    "unknown_fraction": 0.7766830870279147,
+    "occupied_fraction": 0.02370426508357543,
+    "free_fraction": 0.19961264788850996,
+    "occupied_components": 121,
+    "largest_component_cells": 626,
+    "speckle_fraction": 0.130550621669627,
+    "border_contact_fraction": 0.019101123595505618
+  },
+  "quality_score": 36.5
+}

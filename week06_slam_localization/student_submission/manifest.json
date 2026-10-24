@@ -1,0 +1,35 @@
+{
+  "files": {
+    "autosave/responses.json": "00cd1fd95102d23abfccecbd772813504e2efa3b0f224abba205d520287b2120",
+    "autosave/responses.md": "b2be2665534a2df0f9dc11db344d4540a63f557a21bf82bcc85c4905d5753582",
+    "final_reflection.md": "9e4eeadd0245a636ba2a38d94209cd3a55dc9c5fedbddc0ee88ac606a46a5449",
+    "final_synthesis.md": "52ebc436402cd8df39032180ab960691772b08df91e84d0fe6a83c6e4a50b7ff",
+    "mission_1/analysis.json": "8c572365382b324656cd002342b70d25a48a24cbff48a93b8e12a596ad6e548a",
+    "mission_1/evidence.json": "bdfb48d5a2d2986152d143ee27d9e780b09ba42fbe28de2565b961b9b5eac95a",
+    "mission_1/explanation.md": "1b2b6cef7665396b0e36e0e3633bd96caf7b3b30c6081a4c66e77d8446e9309f",
+    "mission_1/map.pgm": "15497bcfc968fe338ce8585f6c0971c39e6fe4cb718dfec2e56b40712861ffc2",
+    "mission_1/map.yaml": "fce3e470362038cf04092e5d5f46f11e05c9bdd3551f6f1766c3281c456e41e8",
+    "mission_1/rviz_screenshot.png": "30cb815908abd25fc3c2d4781bc0bd32d1ffbe41452a91ed41065eff0336faf9",
+    "mission_1/submission.json": "8f511ff39820acdafded90715824da951a92244dfa7a403cc696560988cdd7e5",
+    "mission_2/analysis.json": "881e5e61735e2b65e3ec37125c97931747259f26771a00ee6d8d1ea2e159dadb",
+    "mission_2/evidence.json": "bd8a7b354151840e77c3fa0be99eb5408ff02d623868aab00688547518e20bc9",
+    "mission_2/explanation.md": "42054a83690ecf2290107ebc8553fd9561a3d45618247dbdca7b5c73ceb20b32",
+    "mission_2/map.pgm": "b73b5b9f8ef964510dbdbdc4ff16335ce659f3e2291a15f7300012ed372eaa8f",
+    "mission_2/map.yaml": "b5dee520889f6f6632622283910b3410561ccb881b96fbb944cc0d6a711f6dbe",
+    "mission_2/rviz_screenshot.png": "b8cb8421daa5c57734e1dafb0637f9294ad512df1f03be2b9cfa25f0d61ca6de",
+    "mission_2/submission.json": "15fe6560c703e4d6946ccf8fda16fd980955832fdc4c9edcf55d756912c5aeb4",
+    "student.json": "cecba3f66321f638d1134498b6bb3ec063cb59dfcb38e98f4f51239b148c7d22"
+  },
+  "generated_at": "2026-10-24T07:22:29.490000+00:00",
+  "lab_id": "week06_slam_localization",
+  "mission_signatures": {
+    "mission_1": "28743984a1ce797d",
+    "mission_2": "f3cd1f511d3e2bc1"
+  },
+  "response_signature": "2db2d9958e117dcb",
+  "schema_version": 2,
+  "student": {
+    "email": "stanley.zheng44@login.cuny.edu",
+    "name": "Stanley Zheng"
+  }
+}
