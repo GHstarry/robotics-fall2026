@@ -1,0 +1,44 @@
+[
+  {
+    "camera_wait_steps": 1,
+    "elapsed_sim_seconds": 16.7,
+    "line_loss_events": 0,
+    "mean_absolute_image_error_when_visible": 0.37046978768932237,
+    "outcome": "complete",
+    "recorded_steps": 169,
+    "visited_colors": [
+      "blue"
+    ],
+    "world": "pillars"
+  },
+  {
+    "camera_wait_steps": 1,
+    "elapsed_sim_seconds": 18.3,
+    "line_loss_events": 0,
+    "mean_absolute_image_error_when_visible": 0.3799179684429796,
+    "outcome": "complete",
+    "recorded_steps": 185,
+    "visited_colors": [
+      "red",
+      "green",
+      "turquoise",
+      "blue"
+    ],
+    "world": "pillars"
+  },
+  {
+    "camera_wait_steps": 28,
+    "elapsed_sim_seconds": 24.3,
+    "line_loss_events": 0,
+    "mean_absolute_image_error_when_visible": 0.4684515894224904,
+    "outcome": "complete",
+    "recorded_steps": 272,
+    "visited_colors": [
+      "red",
+      "green",
+      "turquoise",
+      "blue"
+    ],
+    "world": "pillars"
+  }
+]

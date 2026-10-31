@@ -1,0 +1,7 @@
+# pillar_search
+
+## diagnosis
+In attempt 20261031T073530-df66efc5, the robot successfully centered on the blue pillar. For the first 14.2 seconds, the camera did not see blue so the mask was empty and kept turning left at .35 rad/s. at 14.3, blue was detected and the centroid gave an error of -1 meaning that it was all the way to the left. To negate the error, the robot continued to turn left to center on the middle of the image. In attempt 20261031T080127-b95873d2, I raised the gain to 2.75 and the tolerance to .15. The higher gain made the robot turn faster so centering was faster but there was much more overshoot where it would land past the center.  
+
+## evidence
+In attempt 20261031T080127-b95873d2, all four colors were centered and the run ended in COMPLETE after 18.3 seconds. The state timeline and camera evidence shows the same pattern for every color. It goes into SEARCH where it turns until the color appears, then CENTER to turn towards it more. Then CONFIRM where it centers it. Lastly, it HOLD the position for .7 seconds. Then NEXT searches for the next sequence's color (and repeats). A cnetered color and a stable hold does not prove that the robot found the right object because the controller only looks for pixels of a certain color. Any other object that is of the same color would also pass as the controller never checks the shape. It also does not say anything about distance as the single camera only tells what is left and right.

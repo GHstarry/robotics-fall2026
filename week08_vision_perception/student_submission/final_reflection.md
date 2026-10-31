@@ -1,0 +1,3 @@
+1. This activity made me more interest in the computer vision side of robots. By seeing how a camera image is processed by the robot and then turned into a command was interesting especially when it can be seen in the robot's behavior.
+3. I see a lot of value in connecting robots that can see in our society. However one consideration I have with this is that a robot that perceives a colored region can still be wrong about the actual location of the object. As such, if this robot was to move among people, these mistakes could very well hurt someone.
+4. One thing that stood out to me in this activity was how much the gain mattered on the track following task. By changing the gain from 0.08 to 2 allowed it to stay on line better as well as finishing over a minute faster.
