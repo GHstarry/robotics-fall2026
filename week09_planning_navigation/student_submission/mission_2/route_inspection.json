@@ -1,0 +1,14 @@
+{
+  "run_id": "open_nav2_0_baseline_9fde0ab173",
+  "map": "open",
+  "planner": "nav2",
+  "sample": 86,
+  "point": {
+    "t": 11.1,
+    "x": -2.2227089830856226,
+    "y": -1.4078913306008844,
+    "speed_mps": 0.2808814247865721
+  },
+  "tracking_error_m": 0.07721778974988516,
+  "feature": "Turn"
+}
