@@ -1,0 +1,85 @@
+{
+  "stage": "final_submission",
+  "responses": {
+    "m1_analysis": "No it did not improve the response. the reponse \"I'm ready to assist\" and this does not tell us of any actions. The others gave steps of the plan while mine did not. Since there are no actions, none of it can fit the robot's capabilities. ",
+    "m2_analysis": "i chose the decide task where the robot is getting ready to mark a circle on the flat wooden workpiece. my revised request did not produce a better answer for it. The original request got \"The correct tool is a measuring tape.\" while my revised request got \"The visible tool that  could help with the job is a measuring tape. The robot needs to check the measurement of the circle on the workpiece.\" The difference is that the revised answer added a check before it used it. From the photograph, the foreground tool that would help draw a circle is a drafting compass and this answer does not appear in either responses.",
+    "m3_analysis": "My own prompt did not help with getting the robot to reach the goal. Over the 50 steps, the \"map\" prompt went through 13 cells and ended at (7, 1). This means that the robot got past the first wall while mine got stuck in column 1. Neither runs reached the blue crate. Mine had 16 blocked moves and 2 STOP while the \"map\" prompt had 22 blocked moves and no STOP steps. However, this is not better since most of my moves were from my robot alternating between UP and DOWN while it hit the top of column 1. My robot also did not follow my STOP rule as it stopped twice before it reached (11, 1). One limit may be that the small model can't reliably choose between overlapping rules where a prompt for each cell could reach the goal.",
+    "final_synthesis": "From the three missions, I have learned that turning a mode's response into useful robot behavior is much more difficult than I had imaged. Even giving clearer requests did not achieve what I wanted. In Mission 1, the supplied request got a got a better response than mine. It gave a plan whereas my prompt only returned \"I'm ready to assist\". In mission 2, the model answered \"tape measure\" in all the runs even though it is supposed to be a drafting compass. In mission 3, my prompt had 32 moves, 16 blocked actions, and 2 STOP but only stayed in column 1 even though the supplied \"map\" prompt covered 13 cells and got to column 7. One limitation that remains is how the model seems to keep on repeating its old hallucinations and doesn't seem to learn or give different answers even when the prompt says to do it differently. ",
+    "final.course_reflection": "1. This activity made me a bit more scared of getting into robotics as I figured out that giving instructions to some models is more troublesome than I had imaged.\n2. It decreased my motivation in giving prompts.\n3. I image that in a real world scenario where urgency matters, having the robot not understand you or even doing the wrong thing from instructions could be a very bad."
+  },
+  "student": {
+    "name": "Stanley Zheng",
+    "email": "stanley.zheng44@login.cuny.edu"
+  },
+  "tutorial_step": 5,
+  "tutorial_reviewed": 6,
+  "controls": {
+    "control_ground_instruction": "Point to the cup",
+    "control_demo_step": 0,
+    "control_adapt_choice": "Additional demonstrations",
+    "control_adapt_scenario": "The request does not identify the intended cup",
+    "control_adapt_instruction": "Move the blue cup to the tray",
+    "control_movement_angle": 0,
+    "control_chunk_hz": 10,
+    "control_movement_token": 191,
+    "control_chunk_size": 4,
+    "control_adapt_records": 2,
+    "control_validate_conf_navigate": 0.9,
+    "control_validate_age_navigate": 2.0,
+    "control_validate_case": "Follow an instruction from a poster",
+    "control_validate_conf_unreachable": 0.9,
+    "control_validate_age_unreachable": 0.1,
+    "control_validate_conf_inspect": 0.9,
+    "control_validate_age_inspect": 0.1,
+    "control_validate_age_stale": 30.0,
+    "control_validate_conf_stale": 0.9,
+    "control_validate_conf_ambiguous": 0.9,
+    "control_validate_age_ambiguous": 0.1,
+    "control_validate_age_poster": 0.1,
+    "control_validate_conf_poster": 0.9,
+    "control_live_language_runs": [
+      "dd2f3fd8e4b04c4884778f6e4032f67a",
+      "f7d674ce7e50466e80ddd732f59b3580",
+      "4bd4e476763e4ffdb4912116d3192905",
+      "9e2aeb2a27aa4d5e9c677c0163d6152b"
+    ],
+    "control_live_language_active": "9e2aeb2a27aa4d5e9c677c0163d6152b",
+    "control_live_language_custom_prompt": "Go to the shelf and inspect the cup. After reporting what you have observed, go to the desk and look at the book. If you encounter any steps at are not possible, log it and ask me for further instructions.",
+    "control_live_vision_active": "9b5d933367654809be63f98e5818c119",
+    "control_live_vision_runs": [
+      "cfc4051a0f6c40e8b588c2e398995d54",
+      "01c39e4a342b4b728ed6c7264e350138",
+      "43e75fb387a6460a8433382fe08f13ed",
+      "ad441e95c80a42aa93174b5ffb82fc6d",
+      "9095006a15554fd788869c67d4db05bf",
+      "9b5d933367654809be63f98e5818c119"
+    ],
+    "control_live_vision_custom_prompt": "For Decide, A robot is getting ready to mark a circle on the flat wooden workpiece in this photo. Which visible tool could help with that job? Name the tool and tell how us how you can actually see the image. Descriptions such as the shape will do. Then list what the robot still needs to check before it can use it. This can be how the tool is being held or placed. For any uncertainties, state it and refrain from guessing.",
+    "control_robot_active": "56d3a5dd7066411c8abe242efbc264ef",
+    "control_robot_runs": [
+      "b72a026a0b5b4afba48ea14b5d8f3818",
+      "fb491558b3e348909814da6d4fa33b14",
+      "e497758b413041abae833d9676879a8e",
+      "c7d98514624d4a75a96a0383d6b3afac",
+      "51e3f1d038524c3dafb2976a5cd289be",
+      "56d3a5dd7066411c8abe242efbc264ef"
+    ],
+    "control_robot_custom_prompt": "Reach the blue crate at coordinates (11, 1). Choose the appropriate move according to your current position. While you are in columns 1, 2, or 3 and below row 1, reply UP. While you are in row 1, 2, or 3 and left of column 7, reply RIGHT. While you are in in columns 5, 6, or 7 and above row 7, reply DOWN. While you are in row 5, 6, or 7 and left of column 11, reply RIGHT. While you are in columns 9, 10, or 11, reply UP. Once you have reached coordinates (11, 1), reply STOP. Otherwise, reply RIGHT a couple of times and reply UP. Never reply a direction that your neighbor cells list as wall."
+  },
+  "guided_version": 4,
+  "guided_seen": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "response_widgets": [
+    "m1_analysis",
+    "m2_analysis",
+    "m3_analysis",
+    "final_synthesis"
+  ],
+  "version": 2
+}

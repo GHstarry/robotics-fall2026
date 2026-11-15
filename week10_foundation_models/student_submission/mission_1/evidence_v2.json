@@ -1,0 +1,149 @@
+{
+  "version": 2,
+  "run_id": "a1a3d7afe856489ea881834b71851c75",
+  "mission": "mission_1",
+  "saved_at": "2026-11-14T19:05:42.288057+00:00",
+  "settings": {
+    "experiment": "local-live-v2",
+    "model": {
+      "id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "revision": "a10cc1512eabd3dde888204e902eca88bddb4951"
+    }
+  },
+  "rows": [
+    {
+      "job_id": "dd2f3fd8e4b04c4884778f6e4032f67a",
+      "kind": "language",
+      "case": "clear",
+      "prompt": "Go to the shelf, inspect the cup, and report what you observe.",
+      "phase": "baseline",
+      "parent_id": null,
+      "requested_at": "2026-11-14T18:56:38.091286+00:00",
+      "comparison_ids": [],
+      "output": "The robot starts at the shelf and moves towards the cup. It checks the cup and reports that it is empty.",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "model_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "system_prompt": "You are helping a mobile robot. It starts at base. It can navigate to base, shelf or desk, inspect a known object, report observations, or stop. There is a cup on the shelf and a book on the desk. The robot has a camera and wheels but no arm or gripper. It cannot pick up or carry objects. Suggest a short plan using only these capabilities. If information is missing, ask a specific clarification question. If the task is impossible for this robot, explain why. Use at most four short sentences.",
+      "model_input": "Go to the shelf, inspect the cup, and report what you observe.",
+      "image_sha256": null,
+      "image_preprocessing": null,
+      "generated_tokens": 24,
+      "max_new_tokens": 96,
+      "generation_seconds": 1.249,
+      "truncated": false,
+      "decoding": "greedy",
+      "device": "cpu",
+      "live_inference": true,
+      "library_versions": {
+        "torch": "2.8.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "output_constraint": null,
+      "reused_prefix_tokens": 0,
+      "completed_at": "2026-11-14T18:56:42.338814+00:00"
+    },
+    {
+      "job_id": "f7d674ce7e50466e80ddd732f59b3580",
+      "kind": "language",
+      "case": "ambiguous",
+      "prompt": "Go over there and inspect it.",
+      "phase": "baseline",
+      "parent_id": null,
+      "requested_at": "2026-11-14T18:56:49.439807+00:00",
+      "comparison_ids": [],
+      "output": "The robot can inspect the object by moving its camera to the desired location and then using its wheels to navigate to the object.",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "model_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "system_prompt": "You are helping a mobile robot. It starts at base. It can navigate to base, shelf or desk, inspect a known object, report observations, or stop. There is a cup on the shelf and a book on the desk. The robot has a camera and wheels but no arm or gripper. It cannot pick up or carry objects. Suggest a short plan using only these capabilities. If information is missing, ask a specific clarification question. If the task is impossible for this robot, explain why. Use at most four short sentences.",
+      "model_input": "Go over there and inspect it.",
+      "image_sha256": null,
+      "image_preprocessing": null,
+      "generated_tokens": 26,
+      "max_new_tokens": 96,
+      "generation_seconds": 0.957,
+      "truncated": false,
+      "decoding": "greedy",
+      "device": "cpu",
+      "live_inference": true,
+      "library_versions": {
+        "torch": "2.8.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "output_constraint": null,
+      "reused_prefix_tokens": 0,
+      "completed_at": "2026-11-14T18:56:50.516910+00:00"
+    },
+    {
+      "job_id": "4bd4e476763e4ffdb4912116d3192905",
+      "kind": "language",
+      "case": "capability",
+      "prompt": "Pick up the cup and carry it to the desk.",
+      "phase": "baseline",
+      "parent_id": null,
+      "requested_at": "2026-11-14T18:56:54.710735+00:00",
+      "comparison_ids": [],
+      "output": "The robot can navigate to the shelf and inspect the cup. It can stop if it finds the cup is empty.",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "model_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "system_prompt": "You are helping a mobile robot. It starts at base. It can navigate to base, shelf or desk, inspect a known object, report observations, or stop. There is a cup on the shelf and a book on the desk. The robot has a camera and wheels but no arm or gripper. It cannot pick up or carry objects. Suggest a short plan using only these capabilities. If information is missing, ask a specific clarification question. If the task is impossible for this robot, explain why. Use at most four short sentences.",
+      "model_input": "Pick up the cup and carry it to the desk.",
+      "image_sha256": null,
+      "image_preprocessing": null,
+      "generated_tokens": 24,
+      "max_new_tokens": 96,
+      "generation_seconds": 0.911,
+      "truncated": false,
+      "decoding": "greedy",
+      "device": "cpu",
+      "live_inference": true,
+      "library_versions": {
+        "torch": "2.8.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "output_constraint": null,
+      "reused_prefix_tokens": 0,
+      "completed_at": "2026-11-14T18:56:55.641777+00:00"
+    },
+    {
+      "job_id": "9e2aeb2a27aa4d5e9c677c0163d6152b",
+      "kind": "language",
+      "case": "custom",
+      "prompt": "Go to the shelf and inspect the cup. After reporting what you have observed, go to the desk and look at the book. If you encounter any steps at are not possible, log it and ask me for further instructions.",
+      "phase": "custom",
+      "parent_id": null,
+      "requested_at": "2026-11-14T19:00:29.625786+00:00",
+      "comparison_ids": [
+        "dd2f3fd8e4b04c4884778f6e4032f67a",
+        "f7d674ce7e50466e80ddd732f59b3580",
+        "4bd4e476763e4ffdb4912116d3192905"
+      ],
+      "output": "I'm ready to assist.",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "model_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "system_prompt": "You are helping a mobile robot. It starts at base. It can navigate to base, shelf or desk, inspect a known object, report observations, or stop. There is a cup on the shelf and a book on the desk. The robot has a camera and wheels but no arm or gripper. It cannot pick up or carry objects. Suggest a short plan using only these capabilities. If information is missing, ask a specific clarification question. If the task is impossible for this robot, explain why. Use at most four short sentences.",
+      "model_input": "Go to the shelf and inspect the cup. After reporting what you have observed, go to the desk and look at the book. If you encounter any steps at are not possible, log it and ask me for further instructions.",
+      "image_sha256": null,
+      "image_preprocessing": null,
+      "generated_tokens": 7,
+      "max_new_tokens": 96,
+      "generation_seconds": 0.47,
+      "truncated": false,
+      "decoding": "greedy",
+      "device": "cpu",
+      "live_inference": true,
+      "library_versions": {
+        "torch": "2.8.0+cpu",
+        "transformers": "4.57.1"
+      },
+      "output_constraint": null,
+      "reused_prefix_tokens": 0,
+      "completed_at": "2026-11-14T19:00:30.194612+00:00"
+    }
+  ],
+  "responses": {
+    "analysis": "No it did not improve the response. the reponse \"I'm ready to assist\" and this does not tell us of any actions. The others gave steps of the plan while mine did not. Since there are no actions, none of it can fit the robot's capabilities. "
+  },
+  "extra": {
+    "draft_signature": "71340e36bff05852559dcf869c96c0ad6d0ce1db813399dda8d869e5646e3f19"
+  }
+}

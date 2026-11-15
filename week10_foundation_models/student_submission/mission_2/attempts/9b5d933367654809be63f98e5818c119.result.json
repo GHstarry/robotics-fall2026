@@ -1,0 +1,41 @@
+{
+  "status": "complete",
+  "record": {
+    "job_id": "9b5d933367654809be63f98e5818c119",
+    "kind": "vision",
+    "case": "custom",
+    "prompt": "For Decide, A robot is getting ready to mark a circle on the flat wooden workpiece in this photo. Which visible tool could help with that job? Name the tool and tell how us how you can actually see the image. Descriptions such as the shape will do. Then list what the robot still needs to check before it can use it. This can be how the tool is being held or placed. For any uncertainties, state it and refrain from guessing.",
+    "phase": "custom",
+    "parent_id": null,
+    "requested_at": "2026-11-15T03:33:54.284683+00:00",
+    "comparison_ids": [
+      "9095006a15554fd788869c67d4db05bf",
+      "01c39e4a342b4b728ed6c7264e350138",
+      "43e75fb387a6460a8433382fe08f13ed"
+    ],
+    "output": "The visible tool that could help with the job is a measuring tape. The robot needs to check the measurement of the circle on the workpiece.",
+    "model": "HuggingFaceTB/SmolVLM-500M-Instruct",
+    "model_revision": "a7da5b986cb59b408707209984f360a5f4ad7e47",
+    "system_prompt": "",
+    "model_input": "For Decide, A robot is getting ready to mark a circle on the flat wooden workpiece in this photo. Which visible tool could help with that job? Name the tool and tell how us how you can actually see the image. Descriptions such as the shape will do. Then list what the robot still needs to check before it can use it. This can be how the tool is being held or placed. For any uncertainties, state it and refrain from guessing.",
+    "image_sha256": "0c0e4365ce25ec9f22daf3bd4d95883bddd9782289ec17fdb7d2b7c4e8b280ff",
+    "image_preprocessing": {
+      "longest_edge": 512,
+      "image_splitting": false
+    },
+    "generated_tokens": 29,
+    "max_new_tokens": 80,
+    "generation_seconds": 1.918,
+    "truncated": false,
+    "decoding": "greedy",
+    "device": "cpu",
+    "live_inference": true,
+    "library_versions": {
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1"
+    },
+    "output_constraint": null,
+    "reused_prefix_tokens": 0,
+    "completed_at": "2026-11-15T03:33:59.452642+00:00"
+  }
+}

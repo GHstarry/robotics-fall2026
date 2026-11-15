@@ -1,0 +1,29 @@
+{
+  "job_id": "56d3a5dd7066411c8abe242efbc264ef",
+  "kind": "language",
+  "case": "custom",
+  "prompt": "Reach the blue crate at coordinates (11, 1). Choose the appropriate move according to your current position. While you are in columns 1, 2, or 3 and below row 1, reply UP. While you are in row 1, 2, or 3 and left of column 7, reply RIGHT. While you are in in columns 5, 6, or 7 and above row 7, reply DOWN. While you are in row 5, 6, or 7 and left of column 11, reply RIGHT. While you are in columns 9, 10, or 11, reply UP. Once you have reached coordinates (11, 1), reply STOP. Otherwise, reply RIGHT a couple of times and reply UP. Never reply a direction that your neighbor cells list as wall.",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-15T04:57:26.251202+00:00",
+  "comparison_ids": [
+    "b72a026a0b5b4afba48ea14b5d8f3818",
+    "fb491558b3e348909814da6d4fa33b14",
+    "e497758b413041abae833d9676879a8e"
+  ],
+  "task": "robot",
+  "robot_state": {
+    "position": [
+      1,
+      7
+    ],
+    "step": 0,
+    "history": [],
+    "finished": false,
+    "goal_reached": false,
+    "first_goal_step": null,
+    "last_feedback": "No previous action.",
+    "last_decision": null
+  },
+  "simulator_contract": "8da30a943bd97ee39237aa05e8e6800fecdecbef3ce692d7d4e48f851679060f"
+}

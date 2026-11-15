@@ -1,0 +1,14 @@
+{
+  "job_id": "9b5d933367654809be63f98e5818c119",
+  "kind": "vision",
+  "case": "custom",
+  "prompt": "For Decide, A robot is getting ready to mark a circle on the flat wooden workpiece in this photo. Which visible tool could help with that job? Name the tool and tell how us how you can actually see the image. Descriptions such as the shape will do. Then list what the robot still needs to check before it can use it. This can be how the tool is being held or placed. For any uncertainties, state it and refrain from guessing.",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-15T03:33:54.284683+00:00",
+  "comparison_ids": [
+    "9095006a15554fd788869c67d4db05bf",
+    "01c39e4a342b4b728ed6c7264e350138",
+    "43e75fb387a6460a8433382fe08f13ed"
+  ]
+}

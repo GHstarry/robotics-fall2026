@@ -1,0 +1,14 @@
+{
+  "job_id": "9e2aeb2a27aa4d5e9c677c0163d6152b",
+  "kind": "language",
+  "case": "custom",
+  "prompt": "Go to the shelf and inspect the cup. After reporting what you have observed, go to the desk and look at the book. If you encounter any steps at are not possible, log it and ask me for further instructions.",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-14T19:00:29.625786+00:00",
+  "comparison_ids": [
+    "dd2f3fd8e4b04c4884778f6e4032f67a",
+    "f7d674ce7e50466e80ddd732f59b3580",
+    "4bd4e476763e4ffdb4912116d3192905"
+  ]
+}
