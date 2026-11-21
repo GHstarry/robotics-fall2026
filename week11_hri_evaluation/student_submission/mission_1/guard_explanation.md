@@ -1,0 +1,1 @@
+One guard is 'phase == "WAIT_READY' and kind == "READY' and a specific trace event is in the Early and missing readiness case. The early ready at step 3 gets hold since  the phase is still executing.

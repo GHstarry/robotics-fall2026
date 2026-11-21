@@ -1,0 +1,6 @@
+{
+  "case": "clear",
+  "phase": "CONFIRM",
+  "message": "Get the {target} cup, understood. Say confirm to run the action or another command if I understood wrong.",
+  "rationale": "In the baseline, the event message did not say the robot would not move until I said confirm and did not elaborate on what \"correct\" meant. The person should understand that the robot has only heard the request and has not started moving yet until they said \"confirm\" after. The person should also understand that you can say another command if the robot misheard them."
+}
